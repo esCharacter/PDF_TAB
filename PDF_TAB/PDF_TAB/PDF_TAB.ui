@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PDF_TABClass</class>
+ <widget class="QMainWindow" name="PDF_TABClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>866</width>
+    <height>505</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>PDF_TAB</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>Resources/mico.png</normaloff>Resources/mico.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPlainTextEdit" name="plainTextInput">
+          <property name="cursorWidth">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPlainTextEdit" name="plainTextOutput">
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>866</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuflie">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="actionRun"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+    <addaction name="actionClear"/>
+    <addaction name="actionCopy"/>
+   </widget>
+   <addaction name="menuflie"/>
+   <addaction name="menu"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionClear"/>
+   <addaction name="actionCopy"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionRun">
+   <property name="text">
+    <string>run</string>
+   </property>
+  </action>
+  <action name="actionClear">
+   <property name="icon">
+    <iconset resource="PDF_TAB.qrc">
+     <normaloff>:/PDF_TAB/Resources/clear.png</normaloff>:/PDF_TAB/Resources/clear.png</iconset>
+   </property>
+   <property name="text">
+    <string>清空</string>
+   </property>
+   <property name="toolTip">
+    <string>清空输入框</string>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="icon">
+    <iconset resource="PDF_TAB.qrc">
+     <normaloff>:/PDF_TAB/Resources/copy.png</normaloff>:/PDF_TAB/Resources/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>复制</string>
+   </property>
+   <property name="toolTip">
+    <string>复制输出文本</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="PDF_TAB.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>plainTextInput</sender>
+   <signal>textChanged()</signal>
+   <receiver>PDF_TABClass</receiver>
+   <slot>inputChange()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>228</x>
+     <y>256</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionClear</sender>
+   <signal>triggered()</signal>
+   <receiver>PDF_TABClass</receiver>
+   <slot>onClear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionCopy</sender>
+   <signal>triggered()</signal>
+   <receiver>PDF_TABClass</receiver>
+   <slot>onCopyOut()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>249</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>inputChange()</slot>
+  <slot>onClear()</slot>
+  <slot>onCopyOut()</slot>
+ </slots>
+</ui>

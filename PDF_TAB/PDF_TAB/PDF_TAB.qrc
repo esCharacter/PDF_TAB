@@ -1,0 +1,7 @@
+<RCC>
+  <qresource prefix="PDF_TAB">
+    <file>Resources/mico.png</file>
+    <file>Resources/copy.png</file>
+    <file>Resources/clear.png</file>
+  </qresource>
+</RCC>
